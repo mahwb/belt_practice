@@ -13,7 +13,7 @@ def index(request):
         messages.error(request, "Please log in.")
         return redirect("login:idx")
     data = {
-        "cats": Cat.objects.all().annotate(count=Count("likes")).order_by("count")
+        "cats": Cat.objects.all().annotate(count=Count("likes")).order_by("-count")
     }
     return render(request, "cat_app/index.html", data)
 
