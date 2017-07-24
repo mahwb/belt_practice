@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Cat</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'login:lo' %}">Log out</a>
+        <a href="{% url 'cat:idx' %}">Go Back</a>
+    </nav>
+    <main>
+        <form action="{% url 'cat:update' id=cat.id %}" method="POST">
+            {% csrf_token %}
+            <label>Name: </label><input type="text" name="name" value="{{cat.name}}" placeholder="name"><br>
+            <label>Age: </label><input type="text" name="age" value="{{cat.age}}" placeholder="age"><br>
+            <input type="submit" name="submit" value="Edit">
+        </form>
+        <a href="{% url 'cat:idx' %}">Go Back</a>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li><span style="color: red">{{ message }}</span></li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </main>
+</body>
+</html>

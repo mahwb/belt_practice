@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cat Info</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'login:lo' %}">Log out</a>
+        <a href="{% url 'cat:idx' %}">Go Back</a>
+    </nav>
+    <main>
+        <strong>Name:</strong> {{cat.name}}<br>
+        <strong>Age:</strong> {{cat.age}}<br>
+        <strong>Likes:</strong> {{cat.likes.count}}<br>
+    </main>
+</body>
+</html>
